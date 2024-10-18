@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginService } from './services/login.service';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -12,13 +12,7 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 })
 export class AppComponent {
 
-   constructor(private loginService: LoginService){}
+   constructor(){}
 
-  ngOnInit(): void {
-    this.loginService.teste().subscribe((response) => {
-      var x = response;
-    })
-  }
   
-   title = 'financas-front';
 }
