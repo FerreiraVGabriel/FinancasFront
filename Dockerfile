@@ -24,7 +24,7 @@ FROM nginx:1.27-alpine as DEPLOY
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copia os arquivos buildados do Angular da primeira etapa para o diretório padrão do Nginx
-COPY --from=build /app/dist/financas-front /usr/share/nginx/html
+COPY --from=build /app/dist/financas-front/browser /usr/share/nginx/html
 
 # Exponha a porta 80 para acesso à aplicação
 EXPOSE 82

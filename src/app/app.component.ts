@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule ],
+  imports: [RouterOutlet, HttpClientModule, NavBarComponent, CommonModule], // Usar CommonModule
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-   constructor(){}
-
-  
+  constructor(public router: Router) {}
 }
