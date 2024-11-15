@@ -10,7 +10,6 @@ import { UserInputDTO } from '../dtos/inputs/user-input.dto';
 })
 export class AuthService {
   private readonly baseUrl = environment.apiUrl;
-  private tokenKey = 'auth_token';
 
   constructor(private httpclient: HttpClient) {}
 
@@ -18,23 +17,23 @@ export class AuthService {
   login(userInput: UserInputDTO) {
     return this.httpclient.post<any>(`${this.baseUrl}/Authentication/Login`, userInput)
       .pipe(
-        map(token => {
-          localStorage.setItem(this.tokenKey, token);
+        map(tokenKey => {
+          localStorage.setItem('auth_token', tokenKey.token);
           return true;
         })
       );
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem('auth_token');
   }
   
   isAuthenticated(): boolean {
-    const token = localStorage.getItem(this.tokenKey);
+    const token = localStorage.getItem('auth_token');
     return !!token;
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    return localStorage.getItem('auth_token');
   }
 }
