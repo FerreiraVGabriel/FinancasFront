@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserInputDTO } from '../../dtos/inputs/user-input.dto';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { UserInputDTO } from '../../dtos/inputs/user-input.dto';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,7 @@ export class LoginComponent {
 ) {}
 
   protected form = this.fb.group({
-    email: ['', Validators.required],
+    name: ['', Validators.required],
     password: [null, Validators.required],
   });
 
@@ -30,12 +30,12 @@ export class LoginComponent {
     this.submitted = true;
 
     if (this.form.valid) {
-      const email = this.form.value.email || ''; 
+      const name = this.form.value.name || ''; 
       const password = this.form.value.password || ''; 
-      const userInput = new UserInputDTO(email, password);
+      const userInput = new UserInputDTO(name, password);
       this.authService.login(userInput).subscribe(response => {
         if(response)
-          this.router.navigate(['/home']);
+            this.router.navigate(['/students']);
       });
     }
   }

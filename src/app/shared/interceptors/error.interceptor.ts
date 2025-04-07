@@ -30,12 +30,8 @@ import { ToastrService } from 'ngx-toastr';
     private showErrorToast(error: HttpErrorResponse): void {
       let message = 'Ocorreu um erro inesperado.';
       
-      if (error.error) {
-        if (error.error.Message) {
-          message = error.error.Message;
-        } else if (typeof error.error === 'string') {
-          message = error.error;
-        }
+      if (error.error.detail) {
+        message = error.error.detail;
       }
   
       this.toastr.error(message);

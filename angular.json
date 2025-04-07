@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "financas-front": {
+    "projeto-empresa-front": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/financas-front",
+            "outputPath": "dist/projeto-empresa-front",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -31,7 +31,9 @@
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -78,13 +80,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "financas-front:build:production"
+              "buildTarget": "projeto-empresa-front:build:production"
             },
             "development": {
-              "buildTarget": "financas-front:build:development"
+              "buildTarget": "projeto-empresa-front:build:development"
             },
             "docker": {
-              "buildTarget": "financas-front:build:docker"
+              "buildTarget": "projeto-empresa-front:build:docker"
             }
           },
           "defaultConfiguration": "development"
@@ -92,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "financas-front:build"
+            "buildTarget": "projeto-empresa-front:build"
           }
         },
         "test": {

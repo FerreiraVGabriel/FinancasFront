@@ -18,7 +18,7 @@ export class AuthService {
     return this.httpclient.post<any>(`${this.baseUrl}/Authentication/Login`, userInput)
       .pipe(
         map(tokenKey => {
-          localStorage.setItem('auth_token', tokenKey.token);
+          localStorage.setItem('auth_token', tokenKey.Token);
           return true;
         })
       );

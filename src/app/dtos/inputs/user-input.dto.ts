@@ -1,10 +1,9 @@
 export class UserInputDTO {
-    public email: string;
-    public password: string;
+    public SNome: string;
+    public SSenha: string;
   
-    constructor(email: string, password: string) {
-      this.email = email;
-      this.password = password;
+    constructor(SNome: string, SSenha: string) {
+      this.SNome = SNome;
+      this.SSenha = SSenha;
     }
 }
-  

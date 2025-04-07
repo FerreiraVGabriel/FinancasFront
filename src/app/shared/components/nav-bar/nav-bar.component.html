@@ -1,56 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/home">HOME</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <div class="row w-100 align-items-center">
-          <div class="col-md-6">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link" href="/planning">Planejamento </a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/expenses">Despesas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/reports">Relatórios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/settings">Configurações</a>
-              </li>
-            </ul>
-          </div>
 
-          <div class="col-md-2">
-            
-          </div>
-          
-          
-          
-          <div class="col-md-4 d-flex justify-content-end align-items-center">
-            <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-button">
-              <img src="" alt="Avatar" class="avatar">
-              <mat-icon>arrow_drop_down</mat-icon>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/students">HOME</a>
+
+    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngClass]="{'collapse navbar-collapse': true, 'show': !isNavbarCollapsed}">
+      <div class="row w-100 align-items-center">
+        <div class="col-md-6">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="/schools">Escolas </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/students">Alunos </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-4 d-flex justify-content-end align-items-center">
+          <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-button">
+            <mat-icon>person</mat-icon>
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Logout</span>
             </button>
-            <mat-menu #profileMenu="matMenu">
-              <button mat-menu-item >
-                <mat-icon>person</mat-icon>
-                <span>Perfil</span>
-              </button>
-              <button mat-menu-item >
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Logout</span>
-              </button>
-            </mat-menu>
-          </div>
+          </mat-menu>
         </div>
       </div>
     </div>
+  </div>
 </nav>
-  
-
-
-  

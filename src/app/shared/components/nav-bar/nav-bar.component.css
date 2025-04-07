@@ -2,12 +2,6 @@
     align-items: center;
 }
 
-.avatar {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-right: 8px;
-}
   
 .profile-button {
     display: flex;
